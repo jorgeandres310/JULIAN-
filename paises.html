@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const baseUrl = 'http://restcountries.eu/rest/v2';
+
+        document.getElementById("lista_paises").addEventListener('change', infoPais);
+
+        function infoPaises(){
+            fetch(baseUrl+'all')
+            .then( resp => console.log(resp))
+            .then( data => {
+                for(let item of data){
+                    document.getElementById("lista_paises").innerHTML += ""
+                    <option value="${item.alpha2Code}">${item.name}</option>
+                }
+            })
+        }
+        
+    </script>
+</body>
+</html>

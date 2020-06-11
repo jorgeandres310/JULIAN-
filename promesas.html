@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const promise = new Promise( (resolve, rejec) => {
+            const number = Math.floor(Math.random()*10);
+
+            setTimeout( ()=> {
+                if(number > 5){
+                    resolve(number);
+                }else{
+                    reject(new Error("Se genero un error, numero menor a 5"));
+                }
+            }, 1000);
+        });
+        promise
+        .the(number => console.log(number))
+        .catch(er => console.log(er))
+    </script>
+</body>
+</html>
